@@ -1,4 +1,4 @@
-const CACHE_NAME = "baubau-consultazione-v1";
+const CACHE_NAME = "baubau-consultazione-v2";
 const FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon-180.png", "./icon-192.png", "./icon-512.png", "./watermark-dog.svg?v=2"];
 self.addEventListener("install", e => e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));
 self.addEventListener("activate", e => e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith("baubau-consultazione-") && k !== CACHE_NAME).map(k => caches.delete(k)))).then(() => self.clients.claim())));
